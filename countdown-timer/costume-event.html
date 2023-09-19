@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Your Event</title>
+    <!-- Bootstrap CSS CDN -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9"
+      crossorigin="anonymous"
+    />
+    <!-- google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Mooli&display=swap"
+      rel="stylesheet"
+    />
+    <!-- external stylesheet -->
+    <link rel="stylesheet" href="css/style.css" />
+    <style>
+      body {
+        background: linear-gradient(
+          180deg,
+          rgb(35, 49, 66) 0%,
+          rgb(35, 49, 66) 38%,
+          rgb(227, 227, 227) 100%
+        );
+      }
+
+      .container {
+        background: transparent;
+        background-color: #455d7a;
+        padding-top: 1.5%;
+        padding-bottom: 2%;
+        margin-top: 1.5%;
+      }
+
+      .button {
+        background-color: rgb(100, 100, 100);
+      }
+
+      #timer,
+      #event-title {
+        margin: 10px;
+        border-radius: 10px;
+        width: 90%;
+      }
+
+      #timer {
+        background: rgb(255, 255, 255, 0.5);
+      }
+
+      #event-title {
+        color: white;
+      }
+
+      form {
+        padding: 10px;
+        margin: 3%;
+      }
+
+      .hide {
+        display: none;
+      }
+
+      #theTitle {
+        margin-top: auto;
+        margin-left: auto;
+      }
+
+      #h1-container h1 {
+        margin: 0;
+        margin-left: 0;
+        margin-right: 35px;
+        color: rgb(255, 255, 255, 0.9);
+      }
+
+      #image-container.img {
+        margin-left: 10%;
+        margin-right: 15%;
+      }
+
+      #h1-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .title-wrapper {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+      }
+
+      #theTitle {
+        margin: 0;
+      }
+
+      .card {
+        background-color: rgb(255, 255, 255, 0.95);
+        font-weight: bolder;
+        margin-left: 20px;
+        margin-right: 20px;
+        margin-top: 3%;
+        margin-bottom: 5px;
+      }
+
+      .btn-success {
+        background-color: #fcc0d5;
+        border: #fcdce7;
+        color: black;
+      }
+      .btn-success {
+        --bs-btn-hover-bg: #f891b5;
+        --bs-btn-hover-color: #000000;
+        --bs-btn-hover-border-color: #f891b5;
+        --bs-btn-active-bg: #f891b5;
+        --bs-btn-active-border-color: #f891b5;
+        --bs-btn-active-color: #000000;
+      }
+
+      .done {
+        background-color: rgb(35, 49, 66);
+        color: #ffffff;
+        margin-top: 0;
+        margin-bottom: 3%;
+      }
+
+      .done:hover {
+        background-color: rgb(100, 100, 100);
+      }
+
+      @media screen and (max-width: 991px) {
+        #image-container.img {
+          margin-right: 10%;
+          margin-left: 10%;
+        }
+        #h1-container h1 {
+          margin-left: 5px;
+          margin-right: 5px;
+        }
+        img {
+          margin-top: 20px;
+          margin-left: auto;
+          margin-right: auto;
+        }
+      }
+
+      @media screen and (min-width: 992px) {
+        img {
+          margin-top: 20px;
+          margin-left: 0%;
+          margin-bottom: 20px;
+          margin-right: 15%;
+          width: 140%;
+        }
+
+        #h1-container h1 {
+          margin-left: 5px;
+          margin-right: 5px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="row text-center" id="event-title">
+        <div id="image-container" class="img col-md-7 col-lg-5 order-lg-1">
+          <img class="img hide" id="image" src="" alt="uploaded image" />
+        </div>
+        <div id="h1-container" class="h1">
+          <div class="title-wrapper">
+            <h1 id="theTitle">Event Title</h1>
+          </div>
+        </div>
+      </div>
+      <div class="row col-12" id="timer">
+        <div class="inline col-4 col-lg-1">
+          <span class="number" id="day"></span>
+          <span class="text">Days</span>
+        </div>
+        <div class="inline col-4 col-lg-1">
+          <span class="number" id="hour"></span>
+          <span class="text">Hours</span>
+        </div>
+        <div class="inline col-4 col-lg-1">
+          <span class="number" id="minute"></span>
+          <span class="text">Minutes</span>
+        </div>
+        <div class="inline col-4 col-lg-1">
+          <span class="number" id="second"></span>
+          <span class="text">Seconds</span>
+        </div>
+        <div class="done" style="display: none">DONE 🎈</div>
+      </div>
+      <div class="row">
+        <div class="card col-11 col-md-12">
+          <form id="myForm">
+            <div class="form-group">
+              <label for="title" class="form-label">Event Title:</label>
+              <br />
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Title"
+                id="title"
+                required
+                autocomplete="off"
+                maxlength="50"
+              />
+            </div>
+            <div class="form-group mt-3">
+              <label for="end-date" class="from-label"
+                >Enter the end date and time:</label
+              >
+              <br />
+              <input
+                type="datetime-local"
+                class="form-control"
+                id="end-date"
+                aria-describedby="dateHelp"
+                required
+                autocomplete="off"
+              />
+              <div id="dateHelp" class="form-text">
+                Clicking the calendar icon (if exists) simplifies the input process.
+              </div>
+            </div>
+            <div class="form-group mt-3">
+              <label for="image-file" class="form-label"
+                >Select an image:</label
+              >
+              <input
+                type="file"
+                class="form-control"
+                id="image-file"
+                aria-describedby="imgHelp"
+              />
+              <div id="imgHelp" class="form-text">
+                Including an image is optional.
+              </div>
+            </div>
+            <button type="submit" class="btn btn-dark mt-3">Submit</button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <nav class="button">
+      <a href="barbie.html" class="btn btn-success col-4 col-md-2 col-lg-3"
+        >Barbie</a
+      >
+      <a href="oppenheimer.html" class="btn btn-success col-4 col-md-2 col-lg-3"
+        >Oppenheimer</a
+      >
+      <a
+        href="costume-event.html"
+        class="your-event current btn btn-success col-4 col-md-2 col-lg-3"
+        >Your Event</a
+      >
+    </nav>
+
+    <!-- Bootstrap JS CDN -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+      crossorigin="anonymous"
+    ></script>
+    <!-- my JS -->
+    <script>
+      // Get form element
+      const form = document.getElementById("myForm");
+      const imageElement = document.getElementById("image");
+      //is going to hold the inteval
+      var x;
+      // Handle form submission
+      form.addEventListener("submit", function (event) {
+        event.preventDefault(); // Prevent default form submission
+
+        //clear previous interval
+        clearInterval(x);
+        var doneElement = document.querySelector(".done");
+        doneElement.style.display = "none";
+
+        // Get field values
+        const title = document.getElementById("title").value;
+        const date = document.getElementById("end-date").value;
+        const imageFile = document.getElementById("image-file").files[0];
+
+        //Putting the title into place
+        var eventTitle = document.getElementById("theTitle");
+        eventTitle.innerHTML = title;
+
+        const h1Container = document.getElementById("h1-container");
+        if (imageFile) {
+          const reader = new FileReader();
+          reader.onload = function (e) {
+            imageElement.src = e.target.result;
+            imageElement.classList.remove("hide");
+            h1Container.classList.add("col-12", "col-lg-4", "order-lg-2");
+          };
+
+          reader.readAsDataURL(imageFile);
+        } else {
+          imageElement.src = "";
+          imageElement.classList.add("hide");
+          h1Container.classList.remove("col-12", "col-lg-4", "order-lg-2");
+        }
+
+        //calculating the numbers that should be displayed
+        var countDownDate = new Date(date).getTime();
+
+        // Update the count down every 1 second
+        x = setInterval(function () {
+          var now = new Date().getTime();
+          var distance = countDownDate - now;
+
+          var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+          var hours = Math.floor(
+            (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+          );
+          var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+          var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+          // Display the result
+          document.getElementById("day").textContent = days;
+          document.getElementById("hour").textContent = hours;
+          document.getElementById("minute").textContent = minutes;
+          document.getElementById("second").textContent = seconds;
+
+          // When the countdown is completed (distance reaches 0)
+          if (distance <= 0) {
+            clearInterval(x);
+            var doneElement = document.querySelector(".done");
+            doneElement.style.display = "block";
+            document.getElementById("day").textContent = 0;
+            document.getElementById("hour").textContent = 0;
+            document.getElementById("minute").textContent = 0;
+            document.getElementById("second").textContent = 0;
+          }
+        }, 1000);
+      });
+    </script>
+  </body>
+</html>
