@@ -1,0 +1,192 @@
+
+body {
+  font-size: 16px;
+  background-color: #f3f3f3;
+  color: #000000;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  font-family: "Mooli", sans-serif;
+}
+.empty {
+  background-color: #f4aeba;
+  width: 100%;
+  height: 7vh;
+  box-shadow: 0px 21px 20px rgba(0, 0, 0, 0.3);
+}
+
+.container {
+  box-shadow: 0px 0px 30px 8px rgba(0, 0, 0, 0.3);
+  border-radius: 20px;
+  background-color: #fdfdcb;
+  display: flex;
+  margin: 10px auto;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  /* The next line makes the .button class to always stick
+to the bottom of the page. */
+  min-height: 100vh;
+}
+
+.h1 {
+  text-align: center;
+}
+
+h1 {
+  text-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+  font-weight: bolder;
+  margin-top: 5%;
+}
+
+img {
+  margin: 0 auto;
+  width: 100%;
+  border-radius: 5%;
+  margin-top: 5%;
+}
+
+.img {
+  display: flex;
+}
+
+.row {
+  justify-content: center;
+}
+
+.inline {
+  margin: 5%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.number {
+  box-sizing: border-box;
+  border: 1px solid black;
+  border-radius: 10px;
+  padding: 10px;
+  font-size: 24px;
+  font-weight: bold;
+  text-align: center;
+  width: 130%;
+  background-color: #fcdce7;
+}
+
+.text {
+  padding: 10px;
+  box-sizing: border-box;
+  border: 1px solid black;
+  margin-top: 10px;
+  text-align: center;
+  font-size: 120%;
+  width: 130%;
+  border-radius: 10px;
+  background-color: rgb(194, 191, 191);
+  font-weight: 600;
+}
+
+.button {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 15px;
+  background-color: #f4aeba;
+  box-shadow: 0px -12px 20px rgba(0, 0, 0, 0.3);
+  margin-top: auto;
+}
+
+.button > a {
+  margin: 5px;
+  font-size: 120%;
+}
+  
+.current{
+  text-decoration: underline;
+}
+
+.your-event{
+  font-weight: 900;
+}
+
+.done {
+  background-color: #f87575;
+  color: #f2e6f3;
+  width: 80%;
+  font-weight: bold;
+  font-size: 24px;
+  padding: 20px;
+  border: 2px solid #ffffff;
+  border-radius: 10px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  margin-top: 5%;
+  margin-bottom: 10%;
+  animation: fade-in 0.5s ease-in-out;
+}
+
+.done:hover {
+  background-color: #c74444; 
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); 
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@media (max-width: 450px) {
+  .container {
+    margin: 2px auto;
+  }
+
+  .button {
+    flex-direction: column;
+    align-items: center;
+  }
+  .button > a {
+    width: 100%;
+    margin: 5px 0;
+    font-size: 100%;
+  }
+
+  #timer {
+    margin: 10% 20px;
+  }
+
+  .inline {
+    padding: 10px;
+    margin-right: 9%;
+    padding-left: 9%;
+  }
+  .text,
+  .number {
+    box-sizing: border-box;
+    width: 210%;
+  }
+
+  .text {
+    font-size: 100%;
+  }
+}
+
+@media screen and (min-width: 992px) {
+
+  h1 {
+    margin-top: 30%;
+    margin-left: 40%;
+  }
+
+  .text,
+  .number {
+    margin: 1%;
+    width: 260%;
+  }
+
+  img{
+    width: 150%;
+    margin-top: 15%;
+  }
+}
